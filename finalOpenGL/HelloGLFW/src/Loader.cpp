@@ -53,11 +53,11 @@ Mesh* Loader::loadMesh(const string &fileName)
 
             if(vertex1.size() > 2 && vertex2.size() > 2 && vertex3.size() > 2)
             {
-                GLuint normal1Index = (GLuint) atoi(vertex1[2].c_str());
-                GLuint normal2Index = (GLuint) atoi(vertex2[2].c_str());
-                GLuint normal3Index = (GLuint) atoi(vertex3[2].c_str());
+                //GLuint normal1Index = (GLuint) atoi(vertex1[2].c_str());
+                //GLuint normal2Index = (GLuint) atoi(vertex2[2].c_str());
+                //GLuint normal3Index = (GLuint) atoi(vertex3[2].c_str());
 
-                sortedNormals.push_back(normals[normal1Index - 1]);
+                //sortedNormals.push_back(normals[normal1Index - 1]);
             }
         }
     }
@@ -66,11 +66,11 @@ Mesh* Loader::loadMesh(const string &fileName)
 
     if(sortedNormals.size() > 0)
     {
-        mesh = new Mesh(vertices, indices, sortedNormals);
+        //mesh = new Mesh(vertices, indices, sortedNormals);
     }
     else
     {
-        mesh = new Mesh(vertices, indices);
+        //mesh = new Mesh(vertices, indices);
     }
 
     return mesh;

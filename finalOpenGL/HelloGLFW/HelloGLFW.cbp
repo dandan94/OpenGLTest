@@ -20,6 +20,7 @@
 					<Add option="-lglfw3 -lGL -lX11 -lXi -lXrandr -lXxf86vm -lXinerama -lXcursor -lrt -lm -pthread" />
 					<Add library="lib/libGLEW.a" />
 					<Add library="lib/libSOIL.a" />
+					<Add directory="lib" />
 				</Linker>
 			</Target>
 			<Target title="Release">

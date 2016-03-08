@@ -1,13 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-//TODO: Put this elsewhere
-struct Vertex {
-    glm::vec3 Position;
-    glm::vec3 Normal;
-};
-
-
+#include <vector>
 #include "Window.h"
 #include "Shader.h"
 #include "Mesh.h"
