@@ -5,6 +5,7 @@
 
 struct Vertex {
     glm::vec3 Position;
+    glm::vec3 Normal;
 };
 
 #endif // VERTEX_H

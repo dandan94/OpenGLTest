@@ -8432,14 +8432,14 @@
 1506596589 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/glm/glm/gtc/type_ptr.inl
 	<cstring>
 
-1507296688 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/Mesh.h
+1507302183 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/Mesh.h
 	<GL/glew.h>
 	<iostream>
 	<vector>
 	"Vertex.h"
 	"Shader.h"
 
-1506596587 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/Vertex.h
+1507301707 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/Vertex.h
 	"glm/glm/glm.hpp"
 
 1506596587 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/Loader.h
@@ -11845,20 +11845,20 @@
 1506596599 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/FileUtils.cpp
 	"FileUtils.h"
 
-1507299301 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Game.cpp
+1507300621 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Game.cpp
 	"Game.h"
 	<algorithm>
 	"SOIL/SOIL.h"
 
 1506596587 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/SOIL/SOIL.h
 
-1507298990 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Loader.cpp
+1507301864 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Loader.cpp
 	"Loader.h"
 
 1506596599 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/MathUtils.cpp
 	"MathUtils.h"
 
-1507299171 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Mesh.cpp
+1507302609 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Mesh.cpp
 	"Mesh.h"
 
 1506596599 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Shader.cpp

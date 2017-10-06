@@ -25,7 +25,7 @@ Mesh* Loader::loadMesh(const string &fileName)
     for(int i=0;i<lines.size();i++)
     {
         string line = lines[i];
-        if(line == "") break;
+        if(line == "") continue;
 
         vector<string> parts = StringUtils::split(line.c_str(), " ");
 
@@ -55,14 +55,9 @@ Mesh* Loader::loadMesh(const string &fileName)
 
             if(vertex1.size() > 2 && vertex2.size() > 2 && vertex3.size() > 2)
             {
-                GLuint normal1Index = (GLuint) atoi(vertex1[2].c_str());
-                GLuint normal2Index = (GLuint) atoi(vertex2[2].c_str());
-                GLuint normal3Index = (GLuint) atoi(vertex3[2].c_str());
+                GLuint normalIndex = (GLuint) atoi(vertex1[2].c_str());
 
-
-                //std::cout << "Normal: " << normals[normal1Index - 1][0] << std::endl;
-                //glm::vec3 currNormal = glm::vec3((GLfloat) normals[normal1Index - 1], (GLfloat) normals[normal2Index - 1], (GLfloat) normals[normal3Index - 1]);
-                //sortedNormals.push_back(normals[normal1Index - 1]);
+                positions[normalIndex].Normal = normals[normalIndex];
             }
         }
     }

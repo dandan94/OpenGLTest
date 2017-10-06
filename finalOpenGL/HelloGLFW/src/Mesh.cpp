@@ -13,6 +13,7 @@ void Mesh::setup()
     glGenVertexArrays(1, &this->VAO);
     glGenBuffers(1, &this->VBO);
     glGenBuffers(1, &this->EBO);
+    glGenBuffers(1, &this->NBO);
 
     glBindVertexArray(this->VAO);
     // 2. Copy our vertices array in a buffer for OpenGL to use
@@ -22,8 +23,11 @@ void Mesh::setup()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, this->indices.size() * sizeof(GLuint), this->indices.data(), GL_STATIC_DRAW);
     // 3. Then set our vertex attributes pointers
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 2 * 3 * sizeof(GLfloat), (GLvoid*)0);
     glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 2 * 3 * sizeof(GLfloat), (GLvoid*)(sizeof(GLfloat) * 3));
+    glEnableVertexAttribArray(1);
     //4. Unbind the VAO
     glBindVertexArray(0);
 }

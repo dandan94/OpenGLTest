@@ -34,7 +34,7 @@ Game::Game()
 
     //m_Mesh = new Mesh(vertices, vectorIndices);
 
-    m_Mesh = Loader::loadMesh("./res/models/cube.obj");
+    m_Mesh = Loader::loadMesh("./res/models/bunny2.obj");
 
     //int width, height;
     //unsigned char* image = SOIL_load_image("container.jpg", &width, &height, 0, SOIL_LOAD_RGB);
@@ -49,7 +49,7 @@ void Game::run()
 {
     glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
     glEnable(GL_DEPTH_TEST);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     while(!m_Window->shouldClose())
     {
         m_Window->update();
@@ -74,7 +74,7 @@ void Game::render()
     GLfloat x = sin(timeValue) * radius;
     GLfloat z = cos(timeValue) * radius;
 
-    glm::mat4 transformationMatrix = MathUtils::createTransformationMatrix(glm::vec3(0.0f, 0.0f, -20.0f), glm::vec3(0.0f, 0.0f, 0.0f), 1.0f);
+    glm::mat4 transformationMatrix = MathUtils::createTransformationMatrix(glm::vec3(0.0f, 0.0f, -20.0f), glm::vec3(0.0f, x, 0.0f), 1.0f);
     m_Shader->setUniformMat4f("transform", transformationMatrix);
     m_Shader->setUniform4f("ourColor", glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
 

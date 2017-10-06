@@ -22,7 +22,7 @@ class Mesh
         virtual ~Mesh();
         void render(Shader* shader);
     private:
-        GLuint VAO, VBO, EBO;
+        GLuint VAO, VBO, NBO, EBO;
         void setup();
 };
 
