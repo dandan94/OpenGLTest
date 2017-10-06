@@ -1,12 +1,13 @@
 #include "Game.h"
 
 #include <algorithm>
-#include "./SOIL/SOIL.h"
+#include "SOIL/SOIL.h"
 
 Game::Game()
 {
     m_Window = new Window(WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT);
     m_Shader = new Shader("./res/shaders/basicShader");
+
 
     Vertex topRight;
     topRight.Position = glm::vec3(0.5f, 0.5f, 0.0f);
@@ -31,13 +32,12 @@ Game::Game()
 
     vector<GLuint> vectorIndices(std::begin(indices), std::end(indices));
 
-    m_Mesh = new Mesh(vertices, vectorIndices);
+    //m_Mesh = new Mesh(vertices, vectorIndices);
 
-    //m_Mesh = Loader::loadMesh("./res/models/bottle-a.obj");
+    m_Mesh = Loader::loadMesh("./res/models/cube.obj");
 
     //int width, height;
     //unsigned char* image = SOIL_load_image("container.jpg", &width, &height, 0, SOIL_LOAD_RGB);
-
 
     glm::mat4 projectionMatrix = glm::perspective(45.0f, (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 1000.0f);
 
@@ -49,7 +49,7 @@ void Game::run()
 {
     glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
     glEnable(GL_DEPTH_TEST);
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     while(!m_Window->shouldClose())
     {
         m_Window->update();
@@ -74,7 +74,7 @@ void Game::render()
     GLfloat x = sin(timeValue) * radius;
     GLfloat z = cos(timeValue) * radius;
 
-    glm::mat4 transformationMatrix = MathUtils::createTransformationMatrix(glm::vec3(0.0f, 0.0f, -5.0f), glm::vec3(0.0f, 0.0f, 0.0f), 1.0f);
+    glm::mat4 transformationMatrix = MathUtils::createTransformationMatrix(glm::vec3(0.0f, 0.0f, -20.0f), glm::vec3(0.0f, 0.0f, 0.0f), 1.0f);
     m_Shader->setUniformMat4f("transform", transformationMatrix);
     m_Shader->setUniform4f("ourColor", glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
 
@@ -86,5 +86,4 @@ Game::~Game()
 {
     delete m_Shader;
     delete m_Window;
-    delete m_Mesh;
 }

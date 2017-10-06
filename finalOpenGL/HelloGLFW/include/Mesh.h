@@ -17,7 +17,7 @@ class Mesh
     public:
         vector<Vertex> vertices;
         vector<GLuint> indices;
-        Mesh(vector<Vertex> vertices, vector<GLuint> indices);
+        Mesh(const vector<Vertex> &vertices, const vector<GLuint> &indices);
         //Mesh(std::vector<GLfloat> vertices, std::vector<GLuint> indices, std::vector<GLfloat> normals);
         virtual ~Mesh();
         void render(Shader* shader);
