@@ -34,13 +34,30 @@ Game::Game()
 
     //m_Mesh = new Mesh(vertices, vectorIndices);
 
-    m_Mesh = Loader::loadMesh("./res/models/bunny2.obj");
+    m_Mesh = Loader::loadOBJMesh("./res/models/oc12/OC12_6.obj");
 
-    //int width, height;
-    //unsigned char* image = SOIL_load_image("container.jpg", &width, &height, 0, SOIL_LOAD_RGB);
+    int width, height;
+    unsigned char* image = SOIL_load_image("test.png", &width, &height, 0, SOIL_LOAD_RGB);
+
+    GLuint textureID;
+    glGenTextures(1, &textureID);
+
+    // "Bind" the newly created texture : all future texture functions will modify this texture
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+
+    // Give the image to OpenGL
+    glTexImage2D(GL_TEXTURE_2D, 0,GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
 
     glm::mat4 projectionMatrix = glm::perspective(45.0f, (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 1000.0f);
 
+    m_Shader->setUniform1i("tex", 0);
     m_Shader->setUniformMat4f("projection", projectionMatrix);
 }
 
@@ -71,10 +88,10 @@ void Game::render()
 
     GLfloat timeValue = glfwGetTime();
     GLfloat radius = 1.0f;
-    GLfloat x = sin(timeValue) * radius;
-    GLfloat z = cos(timeValue) * radius;
+    GLfloat x = (timeValue) * radius;
+    GLfloat z = (timeValue) * radius;
 
-    glm::mat4 transformationMatrix = MathUtils::createTransformationMatrix(glm::vec3(0.0f, 0.0f, -20.0f), glm::vec3(0.0f, x, 0.0f), 1.0f);
+    glm::mat4 transformationMatrix = MathUtils::createTransformationMatrix(glm::vec3(0.0f, -4.0f, -10.0f), glm::vec3(180.0f, 0.0f, x), 1.0f);
     m_Shader->setUniformMat4f("transform", transformationMatrix);
     m_Shader->setUniform4f("ourColor", glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
 

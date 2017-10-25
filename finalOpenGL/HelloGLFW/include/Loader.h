@@ -19,6 +19,7 @@ class Loader
         Loader();
         virtual ~Loader();
         static Mesh* loadMesh(const std::string &fileName);
+        static Mesh* loadOBJMesh(const string &fileName);
     protected:
     private:
 };

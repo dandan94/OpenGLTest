@@ -17,7 +17,7 @@
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
-					<Add option="-lglfw3 -lGL -lX11 -lXi -lXrandr -lXxf86vm -lXinerama -lXcursor -lrt -lm -pthread" />
+					<Add option="-lglfw3 -lSOIL -lGL -lX11 -lXi -lXrandr -lXxf86vm -lXinerama -lXcursor -lrt -lm -pthread" />
 					<Add library="lib/libGLEW.a" />
 					<Add library="lib/libSOIL.a" />
 					<Add directory="lib" />
@@ -48,7 +48,9 @@
 		<Unit filename="include/Mesh.h" />
 		<Unit filename="include/Shader.h" />
 		<Unit filename="include/StringUtils.h" />
+		<Unit filename="include/Vertex.h" />
 		<Unit filename="include/Window.h" />
+		<Unit filename="include/tinyobjloader.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="res/shaders/basicShader.fs" />
 		<Unit filename="res/shaders/basicShader.vs" />

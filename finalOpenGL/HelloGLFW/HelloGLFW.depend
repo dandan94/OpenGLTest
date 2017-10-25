@@ -7956,7 +7956,7 @@
 	<GL/glext.h>
 	<GL/glu.h>
 
-1506596587 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/Shader.h
+1508857853 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/Shader.h
 	<string>
 	<iostream>
 	<fstream>
@@ -8439,10 +8439,10 @@
 	"Vertex.h"
 	"Shader.h"
 
-1507301707 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/Vertex.h
+1508854474 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/Vertex.h
 	"glm/glm/glm.hpp"
 
-1506596587 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/Loader.h
+1508854329 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/Loader.h
 	"Mesh.h"
 	"FileUtils.h"
 	<string>
@@ -11845,23 +11845,24 @@
 1506596599 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/FileUtils.cpp
 	"FileUtils.h"
 
-1507300621 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Game.cpp
+1508858716 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Game.cpp
 	"Game.h"
 	<algorithm>
 	"SOIL/SOIL.h"
 
 1506596587 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/SOIL/SOIL.h
 
-1507301864 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Loader.cpp
+1508855598 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Loader.cpp
 	"Loader.h"
+	"tinyobjloader.h"
 
 1506596599 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/MathUtils.cpp
 	"MathUtils.h"
 
-1507302609 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Mesh.cpp
+1508857373 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Mesh.cpp
 	"Mesh.h"
 
-1506596599 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Shader.cpp
+1508857824 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Shader.cpp
 	"Shader.h"
 
 1506596599 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/StringUtils.cpp
@@ -11869,4 +11870,18 @@
 
 1506596599 source:/home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/src/Window.cpp
 	"Window.h"
+
+1508854003 /home/daniel/Projects/GL/OpenGLTest/finalOpenGL/HelloGLFW/include/tinyobjloader.h
+	<map>
+	<string>
+	<vector>
+	<cassert>
+	<cctype>
+	<cmath>
+	<cstddef>
+	<cstdlib>
+	<cstring>
+	<utility>
+	<fstream>
+	<sstream>
 

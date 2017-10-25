@@ -77,6 +77,12 @@ GLint Shader::getUniformLocation(std::string attrName)
     return glGetUniformLocation(shaderProgram, attrName.c_str());
 }
 
+void Shader::setUniform1i(std::string attrName, GLuint attrValue)
+{
+    GLint attrLocation = getUniformLocation(attrName);
+    glUniform1i(attrLocation, attrValue);
+}
+
 void Shader::setUniform2f(std::string attrName, glm::vec2 attrValue)
 {
     GLint attrLocation = getUniformLocation(attrName);

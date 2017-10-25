@@ -23,6 +23,7 @@ class Shader
         GLint getUniformLocation(std::string attrName);
     public:
         void Bind();
+        void setUniform1i(std::string attrName, GLuint attrValue);
         void setUniform2f(std::string attrName, glm::vec2 attrValue);
         void setUniform3f(std::string attrName, glm::vec3 attrValue);
         void setUniform4f(std::string attrName, glm::vec4 attrValue);
