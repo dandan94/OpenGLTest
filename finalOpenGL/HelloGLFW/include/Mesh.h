@@ -15,15 +15,13 @@ using namespace std;
 class Mesh
 {
     public:
+        Mesh(const vector<Vertex> &vertices, const vector<GLuint> &indices);
+        virtual ~Mesh();
+        void render();
+    private:
+        GLuint VAO, VBO, EBO;
         vector<Vertex> vertices;
         vector<GLuint> indices;
-        Mesh(const vector<Vertex> &vertices, const vector<GLuint> &indices);
-        //Mesh(std::vector<GLfloat> vertices, std::vector<GLuint> indices, std::vector<GLfloat> normals);
-        virtual ~Mesh();
-        void render(Shader* shader);
-    private:
-        GLuint VAO, VBO, NBO, EBO;
-        void setup();
 };
 
 #endif // MESH_H

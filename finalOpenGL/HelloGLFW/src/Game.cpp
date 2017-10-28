@@ -8,36 +8,10 @@ Game::Game()
     m_Window = new Window(WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT);
     m_Shader = new Shader("./res/shaders/basicShader");
 
-
-    Vertex topRight;
-    topRight.Position = glm::vec3(0.5f, 0.5f, 0.0f);
-    Vertex bottomRight;
-    bottomRight.Position = glm::vec3(0.5f, -0.5f, 0.0f);
-    Vertex bottomLeft;
-    bottomLeft.Position = glm::vec3(-0.5f, -0.5f, 0.0f);
-    Vertex topLeft;
-    topLeft.Position = glm::vec3(-0.5f, 0.5f, 0.0f);
-
-
-    std::vector<Vertex> vertices(4);
-
-    vertices.push_back(topRight);
-    vertices.push_back(bottomRight);
-    vertices.push_back(bottomLeft);
-    vertices.push_back(topLeft);
-    GLuint indices[] = {  // Note that we start from 0!
-        0, 1, 3,   // First Triangle
-        1, 2, 3    // Second Triangle
-    };
-
-    vector<GLuint> vectorIndices(std::begin(indices), std::end(indices));
-
-    //m_Mesh = new Mesh(vertices, vectorIndices);
-
-    m_Mesh = Loader::loadOBJMesh("./res/models/oc12/OC12_6.obj");
+    m_Mesh = Loader::loadOBJMesh("./res/models/bunny.obj");
 
     int width, height;
-    unsigned char* image = SOIL_load_image("test.png", &width, &height, 0, SOIL_LOAD_RGB);
+    unsigned char* image = SOIL_load_image("./res/models/earth/4096_earth.jpg", &width, &height, 0, SOIL_LOAD_RGB);
 
     GLuint textureID;
     glGenTextures(1, &textureID);
@@ -54,11 +28,17 @@ Game::Game()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-
-    glm::mat4 projectionMatrix = glm::perspective(45.0f, (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.1f, 1000.0f);
-
     m_Shader->setUniform1i("tex", 0);
-    m_Shader->setUniformMat4f("projection", projectionMatrix);
+
+
+    Camera* basicCamera = new Camera();
+    basicCamera->setPosition(glm::vec3(0.0f, 0.0f, 3.0f));
+    basicCamera->setFieldOfView(45.0f);
+    basicCamera->setNearAndFarPlanes(1.0f, 1000.0f);
+    basicCamera->setViewportAspectRatio((GLfloat)WINDOW_WIDTH / (GLfloat)WINDOW_HEIGHT);
+    basicCamera->lookAt(glm::vec3(0.0f, 0.0f, 0.0f));
+
+    m_Shader->setUniformMat4f("camera", basicCamera->getMatrix());
 }
 
 
@@ -67,18 +47,24 @@ void Game::run()
     glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
     glEnable(GL_DEPTH_TEST);
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+
+    GLfloat lastTime = glfwGetTime() * 1000;
     while(!m_Window->shouldClose())
     {
+        GLfloat currentTime = glfwGetTime() * 1000;
+        GLfloat delta = currentTime - lastTime;
         m_Window->update();
 
-        update();
+        update(delta);
         render();
+        lastTime = currentTime;
     }
 }
 
-void Game::update()
+void Game::update(GLfloat delta)
 {
-
+    std::cout << delta  <<  "ms" << std::endl;
 }
 
 void Game::render()
@@ -88,15 +74,15 @@ void Game::render()
 
     GLfloat timeValue = glfwGetTime();
     GLfloat radius = 1.0f;
-    GLfloat x = (timeValue) * radius;
+    GLfloat x = (timeValue) * radius * 0.3;
     GLfloat z = (timeValue) * radius;
 
-    glm::mat4 transformationMatrix = MathUtils::createTransformationMatrix(glm::vec3(0.0f, -4.0f, -10.0f), glm::vec3(180.0f, 0.0f, x), 1.0f);
-    m_Shader->setUniformMat4f("transform", transformationMatrix);
+    glm::mat4 transformationMatrix = MathUtils::createTransformationMatrix(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, x, 0.0f), 1.0f);
+    m_Shader->setUniformMat4f("model", transformationMatrix);
     m_Shader->setUniform4f("ourColor", glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
 
     m_Shader->Bind();
-    m_Mesh->render(m_Shader);
+    m_Mesh->render();
 }
 
 Game::~Game()

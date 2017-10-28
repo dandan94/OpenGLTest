@@ -41,6 +41,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Camera.h" />
 		<Unit filename="include/FileUtils.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/Loader.h" />
@@ -54,6 +55,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="res/shaders/basicShader.fs" />
 		<Unit filename="res/shaders/basicShader.vs" />
+		<Unit filename="src/Camera.cpp" />
 		<Unit filename="src/FileUtils.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Loader.cpp" />

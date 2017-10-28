@@ -6,11 +6,12 @@
 #include "Shader.h"
 #include "Mesh.h"
 #include "Loader.h"
+#include "Camera.h"
 #include "StringUtils.h"
 #include "MathUtils.h"
 
-#define WINDOW_WIDTH 1920
-#define WINDOW_HEIGHT 1080
+#define WINDOW_WIDTH 600
+#define WINDOW_HEIGHT 480
 #define WINDOW_TITLE "Testing OpenGL"
 
 class Game
@@ -21,7 +22,7 @@ class Game
         Mesh* m_Mesh;
     private:
         void render();
-        void update();
+        void update(GLfloat delta);
     public:
         Game();
         virtual ~Game();

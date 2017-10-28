@@ -154,10 +154,6 @@ Mesh* Loader::loadOBJMesh(const string &fileName)
           currVertex = {glm::vec3(vx, vy, vz), glm::vec3(nx, ny, nz), glm::vec2(tx, ty)};
 
           vertices.push_back(currVertex);
-          // Optional: vertex colors
-          // tinyobj::real_t red = attrib.colors[3*idx.vertex_index+0];
-          // tinyobj::real_t green = attrib.colors[3*idx.vertex_index+1];
-          // tinyobj::real_t blue = attrib.colors[3*idx.vertex_index+2];
         }
         index_offset += fv;
 
@@ -165,9 +161,6 @@ Mesh* Loader::loadOBJMesh(const string &fileName)
         shapes[s].mesh.material_ids[f];
       }
     }
-
-    std::cout << vertices.size() << std::endl;
-    std::cout << indices.size() << std::endl;
 
     return new Mesh(vertices, indices);
 }
