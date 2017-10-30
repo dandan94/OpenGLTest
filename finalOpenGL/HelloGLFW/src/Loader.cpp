@@ -19,13 +19,12 @@ Mesh* Loader::loadMesh(const string &fileName)
     vector<GLuint> indices;
     vector<glm::vec3> normals;
 
-    int firstFaceIndex = 0;
 
     //vector<GLfloat> textureArray;
     vector<glm::vec3> sortedNormals;
 
 
-    for(int i=0;i<lines.size();i++)
+    for(GLuint i=0;i<lines.size();i++)
     {
         string line = lines[i];
         if(line == "") continue;
@@ -107,7 +106,7 @@ Mesh* Loader::loadOBJMesh(const string &fileName)
       // Loop over faces(polygon)
       size_t index_offset = 0;
       for (size_t f = 0; f < shapes[s].mesh.num_face_vertices.size(); f++) {
-        int fv = shapes[s].mesh.num_face_vertices[f];
+        GLuint fv = shapes[s].mesh.num_face_vertices[f];
 
         // Loop over vertices in the face.
         for (size_t v = 0; v < fv; v++) {

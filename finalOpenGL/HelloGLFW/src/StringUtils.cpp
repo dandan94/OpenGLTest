@@ -7,7 +7,6 @@ std::vector<std::string> StringUtils::split(const char* str, const char* delim)
     strcpy(copyStr, str);
 
     char *token = strtok(copyStr, delim);
-    int index = 0;
     std::vector<std::string> tokenArr;
 
     while(token)

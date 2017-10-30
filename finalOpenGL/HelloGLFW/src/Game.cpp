@@ -6,9 +6,12 @@
 Game::Game()
 {
     m_Window = new Window(WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT);
-    m_Shader = new Shader("./res/shaders/basicShader");
+
 
     m_Mesh = Loader::loadOBJMesh("./res/models/bunny.obj");
+    m_Shader = new Shader("./res/shaders/basicShader");
+
+    m_Entities.push_back(new Model(m_Mesh, m_Shader, glm::vec3(5.0f, 0.0f, -2.0f)));
 
     int width, height;
     unsigned char* image = SOIL_load_image("./res/models/earth/4096_earth.jpg", &width, &height, 0, SOIL_LOAD_RGB);
@@ -64,7 +67,11 @@ void Game::run()
 
 void Game::update(GLfloat delta)
 {
-    std::cout << delta  <<  "ms" << std::endl;
+    std::cout << 1000 /delta  <<  "fps" << std::endl;
+    for(GLuint i = 0; i < m_Entities.size(); i++)
+    {
+        m_Entities[i]->update(delta);
+    }
 }
 
 void Game::render()
@@ -72,17 +79,10 @@ void Game::render()
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    GLfloat timeValue = glfwGetTime();
-    GLfloat radius = 1.0f;
-    GLfloat x = (timeValue) * radius * 0.3;
-    GLfloat z = (timeValue) * radius;
-
-    glm::mat4 transformationMatrix = MathUtils::createTransformationMatrix(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, x, 0.0f), 1.0f);
-    m_Shader->setUniformMat4f("model", transformationMatrix);
-    m_Shader->setUniform4f("ourColor", glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
-
-    m_Shader->Bind();
-    m_Mesh->render();
+    for(GLuint i = 0; i < m_Entities.size(); i++)
+    {
+        m_Entities[i]->render();
+    }
 }
 
 Game::~Game()

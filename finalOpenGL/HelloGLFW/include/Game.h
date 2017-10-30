@@ -9,6 +9,8 @@
 #include "Camera.h"
 #include "StringUtils.h"
 #include "MathUtils.h"
+#include "Entity.h"
+#include "Model.h"
 
 #define WINDOW_WIDTH 600
 #define WINDOW_HEIGHT 480
@@ -20,6 +22,8 @@ class Game
         Shader* m_Shader;
         Window* m_Window;
         Mesh* m_Mesh;
+        std::vector<Entity*> m_Entities;
+
     private:
         void render();
         void update(GLfloat delta);

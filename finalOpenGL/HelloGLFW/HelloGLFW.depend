@@ -11888,7 +11888,7 @@
 1509148983 source:/home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/main.cpp
 	"Game.h"
 
-1509228733 /home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/include/Game.h
+1509309122 /home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/include/Game.h
 	<vector>
 	"Window.h"
 	"Shader.h"
@@ -11897,6 +11897,8 @@
 	"Camera.h"
 	"StringUtils.h"
 	"MathUtils.h"
+	"Entity.h"
+	"Model.h"
 
 1509148979 /home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/include/Window.h
 	<GL/glew.h>
@@ -12407,7 +12409,7 @@
 1509148980 /home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/include/glm/glm/gtc/type_ptr.inl
 	<cstring>
 
-1509221255 /home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/include/Mesh.h
+1509289296 /home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/include/Mesh.h
 	<GL/glew.h>
 	<iostream>
 	<vector>
@@ -15820,7 +15822,7 @@
 1509148989 source:/home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/src/FileUtils.cpp
 	"FileUtils.h"
 
-1509221500 source:/home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/src/Loader.cpp
+1509309960 source:/home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/src/Loader.cpp
 	"Loader.h"
 	"tinyobjloader.h"
 
@@ -15847,13 +15849,13 @@
 1509148989 source:/home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/src/Shader.cpp
 	"Shader.h"
 
-1509148989 source:/home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/src/StringUtils.cpp
+1509309890 source:/home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/src/StringUtils.cpp
 	"StringUtils.h"
 
 1509228746 source:/home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/src/Window.cpp
 	"Window.h"
 
-1509228810 source:/home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/src/Game.cpp
+1509309730 source:/home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/src/Game.cpp
 	"Game.h"
 	<algorithm>
 	"SOIL/SOIL.h"
@@ -15867,4 +15869,17 @@
 	"glm/glm/glm.hpp"
 	"glm/glm/gtx/transform.hpp"
 	"glm/glm/gtc/type_ptr.hpp"
+
+1509310117 /home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/include/Entity.h
+	<GL/glew.h>
+	"glm/glm/glm.hpp"
+	"glm/glm/gtx/transform.hpp"
+	"glm/glm/gtc/type_ptr.hpp"
+	"Mesh.h"
+
+1509309711 /home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/include/Model.h
+	<Entity.h>
+
+1509309738 source:/home/daniel/repos/OpenGL/OpenGLTest/finalOpenGL/HelloGLFW/src/Model.cpp
+	"Model.h"
 
